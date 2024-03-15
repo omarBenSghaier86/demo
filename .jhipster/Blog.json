@@ -1,0 +1,27 @@
+{
+  "annotations": {
+    "changelogDate": "20240315201419"
+  },
+  "applications": ["blog"],
+  "clientRootFolder": "blog",
+  "databaseType": "sql",
+  "entityTableName": "blog",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "3"
+    },
+    {
+      "fieldName": "handle",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "2"
+    }
+  ],
+  "microserviceName": "blog",
+  "name": "Blog",
+  "relationships": [],
+  "searchEngine": "no"
+}

@@ -1,0 +1,23 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 0,
+    "applicationType": "microservice",
+    "baseName": "blog",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "enableHibernateCache": false,
+    "entities": ["Blog", "Post", "Tag"],
+    "jhipsterVersion": "8.1.0",
+    "jwtSecretKey": "M2QzNjQzYjI2OGJjZjQzOWRlNGMzMjUzZDg1OGUwYWNjNzFhNzFhMmIxMGM4MDJjNjcwNTE1OGQzODA1NDU4MDQwOTdhMjgzYjUyZDRlZDI1OGRmOTk5YmIyZmYyMDRlZTEzZGZhOTJmMjFjZDc0YzMxMjhlY2M2YjlmNGFjYWQ=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1710533779000,
+    "messageBroker": "kafka",
+    "nativeLanguage": "en",
+    "packageFolder": "com/okta/developer/blog",
+    "packageName": "com.okta.developer.blog",
+    "prodDatabaseType": "postgresql",
+    "serverPort": "8088",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
