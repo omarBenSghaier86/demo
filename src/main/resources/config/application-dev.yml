@@ -56,7 +56,7 @@ spring:
       port: 8500
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/blog
+    url: jdbc:postgresql://127.0.0.1:5432/postgres
     username: blog
     password:
     hikari:
