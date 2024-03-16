@@ -6,27 +6,22 @@
     <!--
         Added the constraints for entity Post.
     -->
-    <changeSet id="20240315201519-2" author="jhipster">
+    <changeSet id="888888-2" author="jhipster">
 
-        <addForeignKeyConstraint baseColumnNames="blog_id"
-                                 baseTableName="post"
-                                 constraintName="fk_post__blog_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="blog"
-                                 />
 
-        <addForeignKeyConstraint baseColumnNames="post_id"
-                                 baseTableName="rel_post__tag"
+        <addForeignKeyConstraint baseColumnNames="sandwich_id"
+                                 baseTableName="rel_sandwich__ingredient"
                                  constraintName="fk_rel_post__tag__post_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="post"
+                                 referencedTableName="sandwich"
                                  />
 
-        <addForeignKeyConstraint baseColumnNames="tag_id"
-                                 baseTableName="rel_post__tag"
+        <addForeignKeyConstraint baseColumnNames="ingredient_id"
+                                 baseTableName="rel_sandwich__ingredient"
                                  constraintName="fk_rel_post__tag__tag_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="tag"
+                                 referencedTableName="ingredients"
                                  />
+
     </changeSet>
 </databaseChangeLog>

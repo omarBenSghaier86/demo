@@ -1,15 +1,15 @@
 package com.storeapp.repository;
 
-import com.storeapp.domain.Post;
+import com.storeapp.domain.Ingredients;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface PostRepositoryWithBagRelationships {
-    Optional<Post> fetchBagRelationships(Optional<Post> post);
+    Optional<Ingredients> fetchBagRelationships(Optional<Ingredients> post);
 
-    List<Post> fetchBagRelationships(List<Post> posts);
+    List<Ingredients> fetchBagRelationships(List<Ingredients> ingredients);
 
-    Page<Post> fetchBagRelationships(Page<Post> posts);
+    Page<Ingredients> fetchBagRelationships(Page<Ingredients> posts);
 }

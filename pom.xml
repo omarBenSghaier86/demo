@@ -743,7 +743,7 @@
                         </execution>
                         <execution>
                             <!-- Ensures that the code coverage report for unit tests is created after unit tests have been run -->
-                            <id>post-unit-test</id>
+                            <id>ingredients-unit-test</id>
                             <phase>test</phase>
                             <goals>
                                 <goal>report</goal>
@@ -757,8 +757,8 @@
                         </execution>
                         <execution>
                             <!-- Ensures that the code coverage report for integration tests is created after integration tests have been run -->
-                            <id>post-integration-tests</id>
-                            <phase>post-integration-test</phase>
+                            <id>ingredients-integration-tests</id>
+                            <phase>ingredients-integration-test</phase>
                             <goals>
                                 <goal>report-integration</goal>
                             </goals>
@@ -924,8 +924,8 @@
                 <!-- default Spring profiles -->
                 <spring.profiles.active>prod${profile.api-docs}${profile.tls}${profile.e2e}${profile.no-liquibase}</spring.profiles.active>
                 <profile.test>testprod</profile.test>
-                <liquibase-plugin.url>jdbc:postgresql://localhost:5432/blog</liquibase-plugin.url>
-                <liquibase-plugin.username>blog</liquibase-plugin.username>
+                <liquibase-plugin.url>jdbc:postgresql://localhost:5432/sandwich</liquibase-plugin.url>
+                <liquibase-plugin.username>sandwich</liquibase-plugin.username>
                 <liquibase-plugin.password/>
             </properties>
             <build>

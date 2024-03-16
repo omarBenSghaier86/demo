@@ -2,6 +2,9 @@ package com.storeapp.web.rest;
 
 import com.storeapp.broker.KafkaConsumer;
 import java.security.Principal;
+import java.util.List;
+
+import com.storeapp.domain.Ingredients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.stream.function.StreamBridge;
@@ -12,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter
 @RequestMapping("/api/store-app-kafka")
 public class StoreAppKafkaResource {
 
-    private static final String PRODUCER_BINDING_NAME = "binding-out-0";
+    private static final String PRODUCER_BINDING_NAME = "sandwich-topic";
 
     private final Logger log = LoggerFactory.getLogger(StoreAppKafkaResource.class);
     private final KafkaConsumer kafkaConsumer;
@@ -23,10 +26,11 @@ public class StoreAppKafkaResource {
         this.kafkaConsumer = kafkaConsumer;
     }
 
-    @PostMapping("/publish")
-    public void publish(@RequestParam("message") String message) {
-        log.debug("REST request the message : {} to send to Kafka topic ", message);
-        streamBridge.send(PRODUCER_BINDING_NAME, message);
+    @PostMapping("/order")
+    public void order(@RequestBody List<Ingredients> ingredientsDTO) {
+        log.debug("REST request the message : {} to send to Kafka topic ", ingredientsDTO);
+
+        streamBridge.send(PRODUCER_BINDING_NAME, ingredientsDTO);
     }
 
     @GetMapping("/register")

@@ -4,9 +4,12 @@ import static org.springframework.web.servlet.mvc.method.annotation.SseEmitter.e
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
+
+import com.storeapp.domain.Ingredients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -36,9 +39,9 @@ public class KafkaConsumer implements Consumer<String> {
         log.debug("Unregistering sse emitter for: {}", key);
         Optional.ofNullable(emitters.get(key)).ifPresent(SseEmitter::complete);
     }
-    @KafkaListener(topics = "binding-out-0",groupId = "demo-app")
-    public void order(String o, Message acknowledgment) {
-        log.info("Received shipmentwwwwxxxxxx"+o.toString());
+    @KafkaListener(topics = "sandwich-topic",groupId = "product-app")
+    public void order(List<Ingredients> o, Message acknowledgment) {
+        log.info("KafKa received product message ====>"+o.toString());
     }
     @Override
     public void accept(String input) {

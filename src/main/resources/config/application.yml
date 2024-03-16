@@ -112,14 +112,14 @@ spring:
       bindings:
         binding-out-0:
           content-type: text/plain
-          group: store-app
+          group: product-app
         kafkaConsumer-in-0:
-          destination: sse-topic
-          content-type: text/plain
-          group: store-app
+          destination: store-topic
+          content-type: application/mymessage
+          group: product-app
         kafkaProducer-out-0:
-          content-type: text/plain
-          group: store-app
+          content-type: application/mymessage
+          group: product-app
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by maven when building the JAR file
