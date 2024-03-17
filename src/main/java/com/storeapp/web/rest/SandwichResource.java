@@ -78,8 +78,8 @@ public class SandwichResource {
         if(ingredientsDTO!=null){
             for (Ingredients e : ingredientsDTO) {
                 Optional<Ingredients> base = postRepository.findById(e.getId());
-                if(base!=null) {
-                    Ingredients res = base.get();
+                if( base.isPresent()) {
+                    Ingredients res = base.orElseThrow();
                     Long y = res.getQty()-e.getQty();
                     if(y<0)
                         throw new BadRequestAlertException("Quantity was exceeded", e.getName(), "Qty");
@@ -87,7 +87,9 @@ public class SandwichResource {
                     cost = cost +(e.getQty()*e.getPrice());
                     //     postRepository.save(res);
                     ingrs.add(res);
-                }
+                }else
+                    throw new BadRequestAlertException("Ingredient is absent exceeded", e.getName(), "NULL");
+
 
             }
             postRepository.saveAll(ingrs);

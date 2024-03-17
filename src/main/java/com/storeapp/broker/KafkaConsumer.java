@@ -40,7 +40,7 @@ public class KafkaConsumer implements Consumer<String> {
         Optional.ofNullable(emitters.get(key)).ifPresent(SseEmitter::complete);
     }
     @KafkaListener(topics = "sandwich-topic",groupId = "product-app")
-    public void order(List<Ingredients> o, Message acknowledgment) {
+    public void order(String o, Message acknowledgment) {
         log.info("KafKa received product message ====>"+o.toString());
     }
     @Override

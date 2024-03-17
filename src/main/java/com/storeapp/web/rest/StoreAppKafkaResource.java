@@ -32,6 +32,11 @@ public class StoreAppKafkaResource {
 
         streamBridge.send(PRODUCER_BINDING_NAME, ingredientsDTO);
     }
+    @PostMapping("/publish")
+    public void publish(@RequestParam("message") String message) {
+        log.debug("REST request the message : {} to send to Kafka topic ", message);
+        streamBridge.send("binding-out-0", message);
+    }
 
     @GetMapping("/register")
     public ResponseBodyEmitter register(Principal principal) {

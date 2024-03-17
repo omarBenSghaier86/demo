@@ -51,8 +51,15 @@ GET http://127.0.0.1:8090/api/sandwich/bestDay?date=2024-01-02
   docker compose -f src/main/docker/kafka.yml up -d
 - Pull and run Postgres Image
   docker compose -f src/main/docker/postgres.yml up -d
+- Build Project 
+ mvn clean install
 - Run project with maven
 ./mvnw
 - Run project with docker
   docker compose -f src/main/docker/app.yml up -d
 
+## Hazelcast
+ as provider to perform the transaction between application and database ,
+ it s used on high level treatment , for our case we case wee need only to 
+ Handle the high availability of order ,
+ Kafka answer well for this case 
